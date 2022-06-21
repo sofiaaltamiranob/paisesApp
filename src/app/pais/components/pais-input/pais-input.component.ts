@@ -20,8 +20,10 @@ export class PaisInputComponent implements OnInit {
   terminoABuscar: string = '';
 
   ngOnInit(): void {
-    this.debouncer.pipe(debounceTime(500)).subscribe(valor => {
-      console.log('debouncer:', valor)
+    this.debouncer
+    .pipe(debounceTime(300))
+    .subscribe(valor => {
+      this.onDebounce.emit( valor);
     })
   }
   buscar() {
